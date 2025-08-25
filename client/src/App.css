@@ -1,1 +1,5 @@
-@import "tailwindcss";
+
+
+.app-div{
+  padding: 50px;
+}
