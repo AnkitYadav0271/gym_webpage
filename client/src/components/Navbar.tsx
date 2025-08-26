@@ -4,12 +4,15 @@ import useMediaQuery from "../hooks/mediaQuery";
 import { Button } from "../shared/Button";
 import { Bars3Icon } from "@heroicons/react/16/solid";
 import { XMarkIcon } from "@heroicons/react/16/solid";
+import { useScrollHook } from "../hooks/useScroll";
+
 
 
 export default function Navbar() {
     const flexBox = "flex items-center justify-center  ";
     const [selected, setSelected] = useState('home');
     const [isToggled,setToggled] = useState(false);
+    const scroll = useScrollHook()
     let isAboveMediumScreens = useMediaQuery("(min-width:800px)")
     return (
         <nav>
@@ -25,16 +28,16 @@ export default function Navbar() {
                         className={"flex justify-between items-center gap-16  text-sm"}
                     >
                         <div className="links gap-8 flex items-center justify-between">
-                            <Link to="/" onClick={() => setSelected('home')} className={`${selected === 'home' ? "text-[#ff616a]" : "text-[#5e0000]"} capitalize text-sm font-medium hover:text-[#FF616A]`}>home</Link>
-                            <Link to="/benefits" onClick={() => setSelected('benefits')} className={`${selected === 'benefits' ? "text-[#ff616a]" : "text-[#5e0000]"} capitalize text-sm font-medium hover:text-[#FF616A]`}>benefits</Link>
-                            <Link to="/our-classes" onClick={() => setSelected('ourClasses')} className={`${selected === 'ourClasses' ? "text-[#ff616a]" : "text-[#5e0000]"} capitalize text-sm font-medium hover:text-[#FF616A]`}>our classes</Link>
-                            <Link to="/contact-us" onClick={() => setSelected('contactUs')} className={`${selected === 'contactUs' ? "text-[#ff616a]" : "text-[#5e0000]"} capitalize text-sm font-medium hover:text-[#FF616A]`}>contact us</Link>
+                            <Link to="/" onClick={() =>{ setSelected('home'); scroll(`home`)}} className={`${selected === 'home' ? "text-[#ff616a]" : "text-[#5e0000]"} capitalize text-sm font-medium hover:text-[#FF616A]`}>home</Link>
+                            <Link to="/benefits" onClick={() =>{ setSelected('benefits'); scroll(`benefits`)}} className={`${selected === 'benefits' ? "text-[#ff616a]" : "text-[#5e0000]"} capitalize text-sm font-medium hover:text-[#FF616A]`}>benefits</Link>
+                                <Link to="/our-classes" onClick={() =>{ setSelected('ourClasses'); scroll(`our-classes`) }} className={`${selected === 'ourClasses' ? "text-[#ff616a]" : "text-[#5e0000]"} capitalize text-sm font-medium hover:text-[#FF616A]`}>our classes</Link>
+                            <Link to="/contact-us" onClick={() => {setSelected('contactUs'); scroll(`contact-us`)}} className={`${selected === 'contactUs' ? "text-[#ff616a]" : "text-[#5e0000]"} capitalize text-sm font-medium hover:text-[#FF616A]`}>contact us</Link>
 
                         </div>
 
                         <div className="flex items-center justify-between gap-8  ">
                             <Link className={" capitalize  text-sm font-medium text-[#5e0000] "} to="/">login</Link>
-                            <Button className="rounded  bg-[#ffc837] px-2 " to="#">Become a Member</Button>
+                            <Button className="rounded  bg-[#ffc837] px-2 " to="/become-a-member">Become a Member</Button>
                         </div>
                     </div>) :
                         (<button
@@ -62,15 +65,17 @@ export default function Navbar() {
                     </div>
 
                     <div className="links gap-8 flex items-center flex-col justify-between">
-                            <Link to="/" onClick={() => setSelected('home')} className={`${selected === 'home' ? "text-[#ff616a]" : "text-[#5e0000]"} font-bold capitalize text-sm font-medium hover:text-[#ff616a]`}>home</Link>
-                            <Link to="/benefits" onClick={() => setSelected('benefits')} className={`${selected === 'benefits' ? "text-[#ff616a]" : "text-[#5e0000]"} font-bold capitalize text-sm font-medium hover:text-[#ff616a]`}>benefits</Link>
-                            <Link to="/our-classes" onClick={() => setSelected('ourClasses')} className={`${selected === 'ourClasses' ? "text-[#ff616a]" : "text-[#5e0000]"} font-bold capitalize text-sm font-medium hover:text-[#ff616a]`}>our classes</Link>
-                            <Link to="/contact-us" onClick={() => setSelected('contactUs')} className={`${selected === 'contactUs' ? "text-[#ff616a]" : "text-[#5e0000]"} font-bold capitalize text-sm font-medium hover:text-[#ff616a]`}>contact us</Link>
+                            <Link to="/" onClick={() =>{ setSelected('home'); scroll(`home`)}} className={`${selected === 'home' ? "text-[#ff616a]" : "text-[#5e0000]"} font-bold capitalize text-sm font-medium hover:text-[#ff616a]`}>home</Link>
+                            <Link to="/benefits" onClick={() =>{ setSelected('benefits'); scroll(`benefits`) }} className={`${selected === 'benefits' ? "text-[#ff616a]" : "text-[#5e0000]"} font-bold capitalize text-sm font-medium hover:text-[#ff616a]`}>benefits</Link>
+                            <Link to="/our-classes" onClick={() =>{setSelected('ourClasses'); scroll(`our-classes`)}} className={`${selected === 'ourClasses' ? "text-[#ff616a]" : "text-[#5e0000]"} font-bold capitalize text-sm font-medium hover:text-[#ff616a]`}>our classes</Link>
+                            <Link to="/contact-us" onClick={() => {setSelected('contactUs'); scroll(`contact-us`)} } className={`${selected === 'contactUs' ? "text-[#ff616a]" : "text-[#5e0000]"} font-bold capitalize text-sm font-medium hover:text-[#ff616a]`}>contact us</Link>
 
                         </div>
                     </div>
                 )
             }
+
+            
         </nav>
     );
 }

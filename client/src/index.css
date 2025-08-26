@@ -9,6 +9,39 @@
   --font-alt: 'Montserrat', sans-serif;
 }
 
+/* @layer utilities {
+  .before-image{
+    position: relative;
+  }
+} */
+
+.image-before::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -25px;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  opacity: 0.5;
+  background-image: url("../public/EvolveText.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+
+/* .before-image::before{
+  content: "";
+  top: 0;
+  left: 0;
+  width: 120px;
+  background-image: url("../public/HomePageText.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+} */
+
 
 
 
