@@ -17,7 +17,7 @@ export default function Navbar() {
     return (
         <nav>
             <div
-                className={`${flexBox} w-full py-6  fixed top-0 bg-[#DFCCCC]  font-sans z-10 nav-div`} 
+                className={`${flexBox} w-full py-6  fixed top-0 bg-[#DFCCCC]  font-sans z-20 nav-div`} 
                 
             >
                 <div

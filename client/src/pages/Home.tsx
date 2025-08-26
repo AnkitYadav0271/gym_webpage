@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import useMediaQuery from "../hooks/mediaQuery";
 import { Button } from "../shared/Button";
-
+import { motion } from "framer-motion";
 
 export function Home() {
     let isAboveMediumScreens = useMediaQuery("(min-width:800px)")
@@ -10,7 +10,9 @@ export function Home() {
 
         <section id="home" className="gap-16 bg-[#DFCCCC] py-2  md:py-10 md:h-full md:pb-0">
             {/* image and main header  */}
-            <div className="md:flex items-center justify-center mx-auto w-5/6 md:h-5/6 gap-5">
+            <motion.div initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }} className="md:flex items-center justify-center mx-auto w-5/6 md:h-5/6 gap-5">
                 {/* main header  */}
                 <div className="z-10 md:basis-3/5 mt-32">
                     {/* headings  */}
@@ -37,7 +39,7 @@ export function Home() {
                 <div className="top-20 flex items-center justify-center basis-3/5 md:ml-27 md:mt-16 z-10">
                     <img className="h-[300px]" src="HomePageGraphic.png" alt="" />
                 </div>
-            </div>
+            </motion.div>
 
             {
                 isAboveMediumScreens && (
