@@ -23,3 +23,44 @@ export const features = [
 ];
 
 
+export const gymClasses = [
+  {
+    id: 'class_001',
+    name: 'HIIT Blast',
+    description: 'High-Intensity Interval Training that torches calories and boosts endurance in short, explosive bursts.',
+    image: 'image1.png'
+  },
+  {
+    id: 'class_002',
+    name: 'Power Yoga',
+    description: 'A dynamic yoga flow that builds strength, flexibility, and mental focus through breath-driven movement.',
+    image: 'image2.png'
+  },
+  {
+    id: 'class_003',
+    name: 'Strength Circuit',
+    description: 'Full-body resistance training using weights and bodyweight exercises to sculpt and tone muscles.',
+    image: 'image3.png'
+  },
+  {
+    id: 'class_004',
+    name: 'Core Crusher',
+    description: 'Targeted abdominal and lower back workouts designed to build a rock-solid core and improve posture.',
+    image: 'image4.png'
+  },
+  {
+    id: 'class_005',
+    name: 'Zumba Fusion',
+    description: 'A dance-based cardio class blending Latin rhythms with easy-to-follow moves for a fun, sweaty session.',
+    image: 'image5.png'
+  },
+  {
+    id: 'class_006',
+    name: 'Mobility & Recovery',
+    description: 'Gentle stretching, foam rolling, and mobility drills to enhance flexibility and aid post-workout recovery.',
+    image: 'image6.png'
+  }
+];
+
+
+

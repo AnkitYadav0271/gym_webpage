@@ -10,7 +10,8 @@ export function Home() {
 
         <section id="home" className="gap-16 bg-[#DFCCCC] py-2  md:py-10 md:h-full md:pb-0">
             {/* image and main header  */}
-            <motion.div initial={{ opacity: 0, x: -50 }}
+            <motion.div
+                initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }} className="md:flex items-center justify-center mx-auto w-5/6 md:h-5/6 gap-5">
                 {/* main header  */}

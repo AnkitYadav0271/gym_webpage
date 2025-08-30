@@ -3,6 +3,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import { Home } from './pages/Home'
 import { Benefits } from './pages/Benifits'
+import { OurClasses } from './pages/OurClasses'
 
 function App() {
   
@@ -15,6 +16,8 @@ function App() {
     </section>
 
     <Benefits> </Benefits>
+
+    <OurClasses></OurClasses>
     
     </BrowserRouter>
        

@@ -12,7 +12,8 @@ export function Benefits() {
 
     return (
         <section className="py-6 mx-auto min-h-full w-5/7" id="benefits">
-            <motion.div initial={{ opacity: 0, x: -30 }}
+            <motion.div
+                initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 0.5 }} >
@@ -42,15 +43,18 @@ export function Benefits() {
                 </motion.div>
                 {/**  graphic and description  */}
 
-                <div className="mt-10 md:flex-row flex-col flex justify-center items-center gap-16">
+                <motion.div initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false, amount: 0.2 }}
+                    transition={{ duration: 0.5 }} className="mt-10 md:flex-row flex-col flex justify-center items-center gap-16">
                     <img src="/BenefitsPageGraphic.png" alt="benefits page" className="h-90 mx-auto" />
                     <div className="relative ">
                         {/* title  */}
 
-                        <div className=" p-6 md:before:absolute md:before:-top-30   ">
+                        <motion.div className=" p-6 md:before:absolute md:before:-top-30   ">
                             <HeaderText className="">MILLIONS OF MEMBERS GETTING {" "} <span className="text-[#ff616a]">FIT</span>.</HeaderText>
 
-                        </div>
+                        </motion.div>
 
                         {/* description  */}
 
@@ -72,7 +76,7 @@ export function Benefits() {
 
                         {/* button  */}
                     </div>
-                </div>
+                </motion.div>
             </motion.div>
         </section>
     );
