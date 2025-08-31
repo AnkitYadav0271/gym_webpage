@@ -2,9 +2,16 @@ import { Link } from "react-router-dom";
 import useMediaQuery from "../hooks/mediaQuery";
 import { Button } from "../shared/Button";
 import { motion } from "framer-motion";
+import { useScrollHook } from "../hooks/useScroll";
+import { useState } from "react";
+import { Signup } from "../authentication/Signup";
+import { Login } from "../authentication/Login";
+
 
 export function Home() {
     let isAboveMediumScreens = useMediaQuery("(min-width:800px)")
+    let scroll = useScrollHook();
+    const [showModal, setShowModal] = useState<'login' | 'signup' | null>(null);
 
     return (
 
@@ -29,8 +36,8 @@ export function Home() {
                         </p>
                     </div>
                     <div className="flex gap-8 items-center   py-3">
-                        <Button to="" className="bg-[#ffc132] hover:text-[#ffa6a3]"><p className="text-[#5e0000]">Join Now</p></Button>
-                        <Link to={"/contact-us"}> <p className=" text-[#e63946] underline font-alt">learn more</p> </Link>
+                        <button  onClick={()=> setShowModal("signup")} className="bg-[#ffc132] hover:text-[#ffa6a3] p-2 cursor-pointer rounded"><p className="text-[#5e0000]" >Join Now</p></button>
+                        <Link to={"/contact-us"} onClick={()=> scroll("contact-us")}> <p className=" text-[#e63946] underline font-alt">learn more</p> </Link>
                     </div>
                 </div>
 
@@ -55,6 +62,17 @@ export function Home() {
                     </div>
                 )
             }
+
+            
+                {showModal && (
+                 <div className="fixed inset-0 bg-white/30 backdrop-blur-sm rounded  bg-opacity-50 flex items-center justify-center z-50">
+                   <div className="bg-white/60 p-3 rounded shadow-lg  backdrop-blur-lg w-5/12 drop-shadow-sm">
+                     {showModal === 'login' ? <Login /> : <Signup/>}
+                     <button className="mt-2 text-sm text-gray-500 cursor-pointer hover:text-[#ff616a] transition-colors" onClick={() => setShowModal(null)}>Close</button>
+                   </div>
+                 </div>
+               )}
+        
         </section>
 
     );

@@ -5,6 +5,7 @@ import { Home } from './pages/Home'
 import { Benefits } from './pages/Benifits'
 import { OurClasses } from './pages/OurClasses'
 import { ContactUs } from './pages/ContactUs'
+import { Footer } from './components/Footer'
 
 function App() {
   
@@ -21,6 +22,8 @@ function App() {
     <OurClasses></OurClasses>
 
     <ContactUs/>
+
+    <Footer/>
     
     </BrowserRouter>
        

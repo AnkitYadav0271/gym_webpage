@@ -40,7 +40,7 @@ export const ContactUs = () => {
                     viewport={{ once: false, amount: 0.2 }}
                     transition={{ duration: 0.5 }} >
 
-                    <form action="https://formsubmit.co/ankitofficial0271@gmail.com" className="flex flex-col gap-6 mt-5  m-auto  " target="_blank" onSubmit={formSubmitHandler}>
+                    <form action="https://formsubmit.co/ankitofficial0271@gmail.com" className="flex flex-col gap-6 mt-5  m-auto  " target="_blank" onSubmit={formSubmitHandler} method="post">
                         <input type="text" placeholder="NAME" className="w-full rounded border bg-[#ffa6a3] px-5 py-3 placeholder-white"  {...register("name", {
                             required: true,
                             maxLength: 100
@@ -102,11 +102,11 @@ export const ContactUs = () => {
                         <button className="py-3 mt-3 cursor-pointer bg-amber-300 rounded hover:text-white w-[100px]" type="submit">SUBMIT</button>
                     </form>
 
-                    <div className="flex justify-center  md:mt-0  ">
- <img src="ContactUsPageGraphic.png" alt="contact-us-graphic" className="h-[300px] w-[300px]" />
+                    <div className="flex justify-center  title-after relative   p-6   ">
+                        <img src="ContactUsPageGraphic.png" alt="contact-us-graphic" className="h-[300px] w-[300px]" />
                     </div>
 
-                   
+
                 </motion.div>
             </div>
 
