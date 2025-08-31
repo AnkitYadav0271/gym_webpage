@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import { Home } from './pages/Home'
 import { Benefits } from './pages/Benifits'
 import { OurClasses } from './pages/OurClasses'
+import { ContactUs } from './pages/ContactUs'
 
 function App() {
   
@@ -18,6 +19,8 @@ function App() {
     <Benefits> </Benefits>
 
     <OurClasses></OurClasses>
+
+    <ContactUs/>
     
     </BrowserRouter>
        
