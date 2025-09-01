@@ -7,23 +7,52 @@ export const Signup = () => {
     register,
     trigger,
     watch,
+    handleSubmit,
     formState: { errors }
   } = useForm();
 
   const password = watch("password");
 
-  const formSubmitHandler = async (e: any) => {
-    const isValid = await trigger();
-    if (!isValid) {
-      e.preventDefault();
+  //Form Handler
+
+  const formSubmitHandler = async (data: any) => {
+    const { confirmPassword, ...payload } = data;
+
+    try {
+      const response = await fetch("http://localhost:5000/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      let result;
+
+      try{
+         result = await response.json();
+      }catch(err){
+        result = {message:"Invalid return type"}
+      }
+
+    
+        if (response.ok) {
+          console.log("Signup successful:", result);
+        } else {
+          console.log("Signup error:", result);
+        }
+     
+
+
+    } catch (error) {
+      console.error("Signup request failed:", error);
+      throw error;
     }
   };
 
   return (
     <div className="">
-        <div className=" w- h-5/6 border-b-1 border-b-black/50 mt-1">
-            <HeaderText>Signup</HeaderText>
-        </div>
+      <div className=" w- h-5/6 border-b-1 border-b-black/50 mt-1">
+        <HeaderText>Signup</HeaderText>
+      </div>
       <p className="text-[#5e0000]">Enter your credentials correctly and then click signup</p>
 
       <div className="md:flex justify-between items-center gap-4 mt-10">
@@ -35,10 +64,10 @@ export const Signup = () => {
           transition={{ duration: 0.5 }}
         >
           <form
-            action="https://formsubmit.co/ankitofficial0271@gmail.com"
+            action=""
             className="flex flex-col gap-3 mt-5 m-auto w-5/6"
             target="_blank"
-            onSubmit={formSubmitHandler}
+            onSubmit={handleSubmit(formSubmitHandler)}
           >
             {/* Name */}
             <input
